@@ -1,16 +1,22 @@
 /**
- * Muchas veces vamos a querer filtrar por género en el juego Quien es Quien.
- * ¿Es un hombre? ¿Es una mujer?
  *
- * @param {array} people Array de personas
- * @param {string} gender Puede ser "male" | "female"
+ * Implementa una función que, dado un array de personajes del quien es quien, elimine aquella persona cuyo identificador  único coincide con el valor del parámetro idToRemove.
+ * Usa adecuadamente el método filter para conseguirlo
  *
- * @returns {array} Devuelve un array nuevo con las personas filtradas por el género del paráemtro gender
+ * @param {array} people Array de personas del juego
+ * @param {string} idToRemove Indentificador único de la persona a eliminar
+ *
+ * @return {array} Devuelve un array con todas las personas MENOS aquella que tenía el idToRemove
  */
 
-function filterByGender(people, gender) {
+function removePersonArray(people, idsArray) {
+/**
+ * Tengo que quedarme con el método filter con todas las personas QUE NO tienen por id, el idToRemove
+ * 
+ * Corregir 13:23.
+ */
+return people.filter( p => !idsArray.includes(p.id));
 
-return people.filter( p => p.gender == gender)
 }
 
 const people = [
@@ -76,5 +82,5 @@ const people = [
   },
 ];
 
-console.log('Todas los hombres: ', filterByGender(people, "male")); // devuelve el mismo array, pero solo con aquellas personas que se identifican con el género "male"
-console.log('Todas las mujeres', filterByGender(people, "female")); // devuelve el mismo array, pero solo con aquellas personas que se identifican con el género "female"
+console.log(removePersonArray(people, ["11122222", "458558716", "3434234Y"])); // Devuelve el mismo array, menos sin el primer elemento, el señor Karl Jonshon
+
